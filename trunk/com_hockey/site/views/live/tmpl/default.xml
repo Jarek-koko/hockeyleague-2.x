@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <layout title="HOC_LIVE_VIEW_DEFAULT_TITLE">
+        <message>
+	<![CDATA[HOC_LIVE_VIEW_DEFAULT_DESC]]>
+        </message>
+    </layout>
+    <fields name="params">
+        <fieldset name="basic" label="HOC_BASIC_OPTIONS_FIELDSET">
+            <field name="titlehead" type="text" default="Live match" label="HOC_LIVE_TITLE_LABEL" description="HOC_LIVE_TITLE_DESC" size="40" />
+            <field name="id_match" type="text" default="0" label="HOC_LIVE_IDMATCH_LABEL" description="HOC_LIVE_IDMATCH_DESC" />
+            <field name="time" type="text" default="6" label="HOC_LIVE_TIME_LABEL" description="HOC_LIVE_TIME_DESC" />
+            <field name="message1" type="text" default="No match" label="HOC_LIVE_MESSAGE_LABEL" description="HOC_LIVE_MESSAGE_DESC" />
+            <field name="end" type="radio" default="0" label="HOC_LIVE_END_LABEL" description="HOC_LIVE_END_DESC">
+                <option value="0">HOC_NO</option>
+                <option value="1">HOC_YES</option>
+            </field>
+        </fieldset>
+    </fields>
+</metadata>

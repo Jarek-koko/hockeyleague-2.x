@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+<fields>
+    <fieldset name="component" label="HOC_GENERAL_SETTINGS">             
+        <field 
+            name="iddsfp" 
+            type="sql" 
+            default="1" 
+            label="Default season" 
+            description="You must select season for display in the front" 
+            query="SELECT id AS value, nazwa AS iddsfp FROM #__hockey_system order by id desc" 
+        />
+        <field name="gnumber" type="radio" default="1" label="HOC_NAME_GNUMBER_TITLE" description="HOC_NAME_GNUMBER_DESC" >
+            <option value="0">HOC_NO</option>
+            <option value="1">HOC_YES</option>
+        </field>
+    </fieldset>
+    <fieldset name="playoff" label="HOC_NAME_PLAY-OFF">
+        <field name="round1" type="text" default="Round 1"      label="ROUND_1" description="ROUND_1" size="30" />
+        <field name="round2" type="text" default="Round 2"      label="ROUND_2" description="ROUND_2" size="30" />
+        <field name="round3" type="text" default="Round 3"      label="ROUND_3" description="ROUND_3" size="30" />
+        <field name="round4" type="text" default="Round 4"      label="ROUND_4" description="ROUND_4" size="30" />
+        <field name="round5" type="text" default="Round 5"      label="ROUND_5" description="ROUND_5" size="30" />
+        <field name="round6" type="text" default="Round 6"      label="ROUND_6" description="ROUND_6" size="30" />
+        <field name="round7" type="text" default="Quarterfinal" label="ROUND_7" description="ROUND_7" size="30" />
+        <field name="round8" type="text" default="Semifinal"    label="ROUND_8" description="ROUND_8" size="30" />
+        <field name="round9" type="text" default="Final"        label="ROUND_9" description="ROUND_9" size="30" />
+    </fieldset>
+    <fieldset name="sparrings" label="HOC_NAME_SPARRINGS">
+        <field name="name1" type="text" default="Sparring"       label="NAME_1" description="NAME_1" size="30" />
+        <field name="name2" type="text" default="Tournament"     label="NAME_2" description="NAME_2" size="30" />
+        <field name="name3" type="text" default="Cup"            label="NAME_3" description="NAME_3" size="30" />
+        <field name="name4" type="text" default="Friendly match" label="NAME_4" description="NAME_4" size="30" />
+        <field name="name5" type="text" default="Sparring 1"  label="NAME_5" description="NAME_5" size="30" />
+        <field name="name6" type="text" default="Sparring 2"  label="NAME_6" description="NAME_6" size="30" />
+        <field name="name7" type="text" default="Sparring 3"  label="NAME_7" description="NAME_7" size="30" />
+        <field name="name8" type="text" default="Sparring 4"  label="NAME_8" description="NAME_8" size="30" />
+        <field name="name9" type="text" default="Sparring 5"  label="NAME_9" description="NAME_9" size="30" />
+    </fieldset>
+</fields>
+</config>
