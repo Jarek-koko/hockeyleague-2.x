@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <layout title="HOC_SCHEDULEO_VIEW_DEFAULT_TITLE">
+        <message>
+	<![CDATA[HOC_SCHEDULEO_VIEW_DEFAULT_DESC]]>
+        </message>
+    </layout>
+    <fields name="params" addfieldpath="/administrator/components/com_hockey/models/fields">
+        <fieldset name="basic" label="HOC_BASIC_OPTIONS_FIELDSET">
+            <field name="title_match" type="text" default="Other matches" label="HOC_SCHEDULEO_TITLE_LABEL" description="HOC_SCHEDULEO_TITLE_DESC" size="40" />
+            <field 
+                name="idseason" 
+                type="sql" 
+                default="1" 
+                label="HOC_SELECT_SEASON_LABEL" 
+                description="HOC_SELECT_SEASON_DESC" 
+                query="SELECT id AS value, nazwa AS idseason FROM #__hockey_system order by id desc" 
+          />
+          <field 
+            name="idteamlink" 
+            type="sqlparams" 
+            default="1" 
+            label="HOC_SELECT_TEAM_REPORT_LABEL" 
+            description="HOC_SELECT_TEAM_REPORT_DESC" 
+            query="SELECT id AS value, name AS idteamlink FROM #__hockey_teams WHERE published=1 order by id desc"
+            opt1="HOC_ALL_TEAMS" translate="true"
+          />
+            <field name="show_event" type="list" default="" label="HOC_SHOW_EVENTS_LABEL" description="HOC_SHOW_EVENTS_DESC">
+                <option value="0">HOC_ALL_EVENTS</option>
+                <option value="1">NAME_1</option>
+                <option value="2">NAME_2</option>
+                <option value="3">NAME_3</option>
+                <option value="4">NAME_4</option>
+                <option value="5">NAME_5</option>
+                <option value="6">NAME_6</option>
+                <option value="7">NAME_7</option>
+                <option value="8">NAME_8</option>
+                <option value="9">NAME_9</option>
+            </field>
+        </fieldset>
+        <fieldset name="sparrings" label="HOC_NAME_SPARRINGS">
+            <field name="name1" type="text" default="Sparring"       label="NAME_1" description="NAME_1" size="30" />
+            <field name="name2" type="text" default="Tournament"     label="NAME_2" description="NAME_2" size="30" />
+            <field name="name3" type="text" default="Cup"            label="NAME_3" description="NAME_3" size="30" />
+            <field name="name4" type="text" default="Friendly match" label="NAME_4" description="NAME_4" size="30" />
+            <field name="name5" type="text" default="Sparring 1"  label="NAME_5" description="NAME_5" size="30" />
+            <field name="name6" type="text" default="Sparring 2"  label="NAME_6" description="NAME_6" size="30" />
+            <field name="name7" type="text" default="Sparring 3"  label="NAME_7" description="NAME_7" size="30" />
+            <field name="name8" type="text" default="Sparring 4"  label="NAME_8" description="NAME_8" size="30" />
+            <field name="name9" type="text" default="Sparring 5"  label="NAME_9" description="NAME_9" size="30" />
+        </fieldset>
+    </fields>
+</metadata>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <layout title="HOC_SCHEDULEP_VIEW_DEFAULT_TITLE">
+        <message>
+	<![CDATA[HOC_SCHEDULEP_VIEW_DEFAULT_DESC]]>
+        </message>
+    </layout>
+     <fields name="params" addfieldpath="/administrator/components/com_hockey/models/fields">
+        <fieldset name="basic" label="HOC_BASIC_OPTIONS_FIELDSET">   
+            <field name="show_select" type="radio" default="1" label="HOC_BASIC_SHOW_SELECT_LABEL" description="HOC_BASIC_SHOW_SELECT_DESC">
+                <option value="0">HOC_HIDE</option>
+                <option value="1">HOC_SHOW</option>
+            </field>
+            <field 
+                name="idseason" 
+                type="sql" 
+                default="1" 
+                label="HOC_SELECT_SEASON_LABEL" 
+                description="HOC_SELECT_SEASON_DESC" 
+                query="SELECT id AS value, nazwa AS idseason FROM #__hockey_system order by id desc" 
+            />
+            <field 
+            name="idteamlink" 
+            type="sqlparams" 
+            default="1" 
+            label="HOC_SELECT_TEAM_REPORT_LABEL" 
+            description="HOC_SELECT_TEAM_REPORT_DESC" 
+            query="SELECT id AS value, name AS idteamlink FROM #__hockey_teams WHERE published=1 order by id desc"
+            opt1="HOC_ALL_TEAMS" translate="true"
+            />
+        </fieldset>
+       <fieldset name="playoff" label="HOC_BASIC_OPTIONS_NAME_PLAY-OFF">
+        <field name="round1" type="text" default="Round 1"      label="ROUND_1" description="ROUND_1" size="30" />
+        <field name="round2" type="text" default="Round 2"      label="ROUND_2" description="ROUND_2" size="30" />
+        <field name="round3" type="text" default="Round 3"      label="ROUND_3" description="ROUND_3" size="30" />
+        <field name="round4" type="text" default="Round 4"      label="ROUND_4" description="ROUND_4" size="30" />
+        <field name="round5" type="text" default="Round 5"      label="ROUND_5" description="ROUND_5" size="30" />
+        <field name="round6" type="text" default="Round 6"      label="ROUND_6" description="ROUND_6" size="30" />
+        <field name="round7" type="text" default="Quarterfinal" label="ROUND_7" description="ROUND_7" size="30" />
+        <field name="round8" type="text" default="Semifinal"    label="ROUND_8" description="ROUND_8" size="30" />
+        <field name="round9" type="text" default="Final"        label="ROUND_9" description="ROUND_9" size="30" />
+    </fieldset>
+    </fields>
+</metadata>

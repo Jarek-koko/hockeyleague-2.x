@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="HOC_STANDINGS_VIEW_DEFAULT_TITLE">
+        <message>
+            <![CDATA[HOC_STANDINGS_VIEW_DEFAULT_DESC]]>
+         </message>
+    </layout>
+    <fields name="params">
+        <fieldset name="basic" label="HOC_BASIC_OPTIONS_FIELDSET">   
+            <field name="show_select" type="radio" default="1" label="HOC_BASIC_SHOW_SELECT_LABEL" description="HOC_BASIC_SHOW_SELECT_DESC">
+                <option value="0">HOC_HIDE</option>
+                <option value="1">HOC_SHOW</option>
+            </field>
+            <field 
+                name="idseason" 
+                type="sql" 
+                default="1" 
+                label="HOC_SELECT_SEASON_LABEL" 
+                description="HOC_SELECT_SEASON_DESC" 
+                query="SELECT id AS value, nazwa AS idseason FROM #__hockey_system order by id desc" 
+        />
+        </fieldset>
+    </fields>
+</metadata>
