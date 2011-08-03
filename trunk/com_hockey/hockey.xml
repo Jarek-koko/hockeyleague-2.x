@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="1.7.0" method="upgrade">
     <name>COM_HOCKEY</name>
-    <creationDate>June 2011</creationDate>
+    <creationDate>August 2011</creationDate>
     <author>Klich Jarosław</author>
-    <authorEmail>Jarek.koko+HockeyTeam@gmail.com</authorEmail>
-    <authorUrl>http://hockey2.jarek.yum.pl/</authorUrl>
+    <authorEmail>Jarek.koko+HockeyLeague@gmail.com</authorEmail>
+    <authorUrl>http://hockeyleague.jarek.yum.pl/</authorUrl>
     <copyright>Klich Jarosław</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-    <version>0.0.90 alfa</version>
+    <version>0.0.90 Alfa</version>
     <description>Hockey League</description>
     
     <!-- Runs on install/uninstall/update; New in 1.6 -->
@@ -22,6 +22,11 @@
             <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
         </sql>
     </uninstall>
+    <update> <!-- Runs on update; New in 1.6 -->
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
    
    <!-- Site Main File Copy Section -->
     <files folder="site">
@@ -77,8 +82,6 @@
         <languages folder="admin">
             <language tag="en-GB">language/en-GB/en-GB.com_hockey.ini</language>
             <language tag="en-GB">language/en-GB/en-GB.com_hockey.sys.ini</language>
-            <language tag="pl-PL">language/pl-PL/pl-PL.com_hockey.ini</language>
-            <language tag="pl-PL">language/pl-PL/pl-PL.com_hockey.sys.ini</language>
         </languages>
     </administration>
 </extension>
