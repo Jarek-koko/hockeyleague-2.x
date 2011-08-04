@@ -145,3 +145,11 @@ div.leg_p { display:block;}
 #core ul.tabs-rec a:hover {background-color:#F7F7F7;color:#333}
 #core ul.tabs-rec a.current {background-color:#fff;background:url(../assets/tab.png) no-repeat scroll 50% 60% transparent;border-bottom:1px solid #fff;color:#000;cursor:default}
 #core .panes-rec > div{display:none;border:1px solid #C8C8C8;min-height:150px;background-color:#fff;border-width:0 1px 1px;padding:15px 10px}
+
+/* teams presentation */
+#teamshoc .thp {color:#ffffff; width: 100%; margin:15px 0;  background:#B30202 url(../assets/headred.gif) repeat-x scroll bottom center; border:1px solid #000; }
+#teamshoc .thp .lf1 {float: left; width: 25%; text-align: left; padding: 10px 5px; }
+#teamshoc .thp .lf2 {float: left; width: 65%; text-align: justify; padding: 10px 5px;}
+#teamshoc .thp span { display: block; margin:5px; font-size: 110%; font-weight: bold;font-style: oblique; }
+#teamshoc .thp img {margin:10px 10px 20px 20px;border: 1px solid #fff}
+#teamshoc .thp .lf2 .des {min-height: 150px; margin-bottom: 25px;}
