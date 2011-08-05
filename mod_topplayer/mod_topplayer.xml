@@ -15,8 +15,8 @@
         <filename>mod_topplayer.xml</filename>
     </files>
     <languages>
-        <language tag="en-GB">en-GB.mod_topplayer.sys.ini</language>
         <language tag="en-GB">en-GB.mod_topplayer.ini</language>
+        <language tag="en-GB">en-GB.mod_topplayer.sys.ini</language>
     </languages>
   <config>
       <fields name="params" addfieldpath="/administrator/components/com_hockey/models/fields">

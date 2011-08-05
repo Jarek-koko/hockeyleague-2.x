@@ -15,9 +15,9 @@
         <filename>index.html</filename>
         <filename>mod_matchdays.xml</filename>
     </files>
-     <languages>
-        <language tag="en-GB">en-GB.mod_matchdays.sys.ini</language>
+     <languages>     
         <language tag="en-GB">en-GB.mod_matchdays.ini</language>
+        <language tag="en-GB">en-GB.mod_matchdays.sys.ini</language>
     </languages>
     <config>
         <fields name="params">

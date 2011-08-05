@@ -17,8 +17,8 @@
         <filename>mod_standings.xml</filename>
     </files>
      <languages>
-        <language tag="en-GB">en-GB.mod_standings.sys.ini</language>
         <language tag="en-GB">en-GB.mod_standings.ini</language>
+        <language tag="en-GB">en-GB.mod_standings.sys.ini</language>
     </languages>
     <config>
         <fields name="params">

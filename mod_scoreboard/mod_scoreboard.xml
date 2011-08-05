@@ -17,8 +17,8 @@
         <filename>mod_scoreboard.xml</filename>
     </files>
     <languages>
-        <language tag="en-GB">en-GB.mod_scoreboard.sys.ini</language>
         <language tag="en-GB">en-GB.mod_scoreboard.ini</language>
+        <language tag="en-GB">en-GB.mod_scoreboard.sys.ini</language>
     </languages>
     <config>
         <fields name="params">
