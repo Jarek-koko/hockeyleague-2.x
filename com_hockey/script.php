@@ -54,7 +54,7 @@ class com_hockeyInstallerScript {
     function preflight($type, $parent) {
         $jversion = new JVersion();
         if (version_compare($jversion->getShortVersion(), '1.6', 'lt')) {
-            Jerror::raiseWarning(null, 'Cannot install com_hockey in a Joomla release prior to 1.6');
+            Jerror::raiseWarning(null, 'Cannot install Hockey League in a Joomla release prior to 1.6');
             return false;
         }
     }
