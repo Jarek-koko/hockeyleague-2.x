@@ -22,6 +22,9 @@ class HockeyViewModcal extends JView {
             return;
         }
         
+        $document =& JFactory::getDocument();
+        $document->setMimeEncoding('text/plain');
+        
         $model = &$this->getModel();
         $list = $model->getList();
         $this->assignRef('list', $list);

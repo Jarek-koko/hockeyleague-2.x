@@ -69,25 +69,25 @@ class com_hockeyInstallerScript {
         if ($direxists[] = JFolder::exists(JPATH_SITE . DS . 'images' . DS . 'hockey')) {
             echo '<p><b><span style="color:green;">FINISHED : - </span></b> Directory created - /images/hockey</p>';
         } else {
-            echo '<p><b><span style="color:red;">Note : - </span></b> Directory not created. - /images/hockey </p>';
+            echo '<p><b><span style="color:red;">Note : - </span></b>Directory not created, you must create manually. - /images/hockey </p>';
         }
 
         if ($direxists[] = JFolder::exists(JPATH_SITE . DS . 'images' . DS . 'hockey' . DS . 'numbers')) {
             echo '<p><b><span style="color:green;">FINISHED : - </span></b> Directory created - /images/hockey/numbers</p>';
         } else {
-            echo '<p><b><span style="color:red;">Note : - </span></b> Directory not created - /images/hockey/numbers</p>';
+            echo '<p><b><span style="color:red;">Note : - </span></b>Directory not created, you must create manually - /images/hockey/numbers</p>';
         }
 
         if ($direxists[] = JFolder::exists(JPATH_SITE . DS . 'images' . DS . 'hockey' . DS . 'players')) {
             echo '<p><b><span style="color:green;">FINISHED : - </span></b> Directory created - /images/hockey/players</p>';
         } else {
-            echo '<p><b><span style="color:red;">Note : - </span></b> Directory not created - /images/hockey/players</p>';
+            echo '<p><b><span style="color:red;">Note : - </span></b>Directory not created, you must create manually - /images/hockey/players</p>';
         }
 
         if ($direxists[] = JFolder::exists(JPATH_SITE . DS . 'images' . DS . 'hockey' . DS . 'teams')) {
             echo '<p><b><span style="color:green;">FINISHED : - </span></b> Directory created - /images/hockey/teams</p>';
         } else {
-            echo '<p><b><span style="color:red;">Note : - </span></b> Directory not created - /images/hockey/teams</p>';
+            echo '<p><b><span style="color:red;">Note : - </span></b>Directory not created, you must create manually - /images/hockey/teams</p>';
         }
 
         echo '<br />';

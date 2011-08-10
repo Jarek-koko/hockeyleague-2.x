@@ -28,6 +28,9 @@ class HockeyViewLive extends JView {
             return;
         }
 
+         
+        $document =& JFactory::getDocument();
+        $document->setMimeEncoding('text/plain');
         $model = &$this->getModel();
         $model->setId($id_match);
         $list = $model->getList();

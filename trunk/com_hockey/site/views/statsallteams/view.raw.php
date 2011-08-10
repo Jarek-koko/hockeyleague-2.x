@@ -33,7 +33,9 @@ class HockeyViewStatsallteams extends JView {
              echo '<div class="lmessage"><span>' . JText::_("Data not found") . '</span></div>';
             return;
         }
-        
+         
+        $document =& JFactory::getDocument();
+        $document->setMimeEncoding('text/plain');
         $model = & $this->getModel();
         $model->setLimit($limit);
         

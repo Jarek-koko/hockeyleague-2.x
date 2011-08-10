@@ -170,7 +170,3 @@ var FancyForm = {
 		});
 	}
 };
-
-window.addEvent('domready', function(){
-	FancyForm.start();
-});

@@ -64,7 +64,7 @@
     
     
     <administration>
-        <menu img="components/com_hockey/assets/icon-16-menu-hockey.png">Hockey</menu>
+        <menu img="components/com_hockey/assets/icon-16-menu-hockey.png">COM_HOCKEY</menu>
         <files folder="admin">
             <filename>hockey.php</filename>
             <filename>config.xml</filename>
