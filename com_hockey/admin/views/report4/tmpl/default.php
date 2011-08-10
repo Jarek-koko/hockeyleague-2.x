@@ -9,7 +9,6 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
 defined('_JEXEC') or die('Restricted access');
-JHTML::_('behavior.formvalidation');
 ?>
 <script type="text/javascript">
     //<![CDATA[

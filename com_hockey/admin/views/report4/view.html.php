@@ -20,10 +20,11 @@ class HockeyViewReport4 extends JView {
     public function display($tpl = null) {
 
         $document = & JFactory::getDocument();
+        JHTML::_('behavior.formvalidation');
         $document->addScript(JURI::root(true) . "/administrator/components/com_hockey/assets/Autocompleter.js");
         $document->addScript(JURI::root(true) . "/administrator/components/com_hockey/assets/Autocompleter.Request.js");
         $document->addScript(JURI::root(true) . "/administrator/components/com_hockey/assets/Observer.js");
-
+         
         $id_match = (int) JRequest::getVar('id_match', 0, '', 'INT');
         $this->_type = (int) JRequest::getVar('type', 5, '', 'INT');
         $option = JRequest::getCmd('option');

@@ -29,7 +29,9 @@ class HockeyViewModmatch extends JView {
             JError::raiseError(404, JText::_("Data not found"));
             return;
         }
-
+         
+        $document =& JFactory::getDocument();
+        $document->setMimeEncoding('text/plain');
         $this->assignRef('rows', $rows);
         parent::display($tpl);
     }

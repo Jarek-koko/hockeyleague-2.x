@@ -14,6 +14,9 @@ jimport('joomla.application.component.view');
 class HockeyViewModtop extends JView {
 
     function display($tpl = null) {
+         
+        $document =& JFactory::getDocument();
+        $document->setMimeEncoding('text/plain');
       
         $id = (int) JRequest::getVar('id', 0, 'get', 'INT');
         $sez = (int) JRequest::getVar('sez', 0, 'get', 'INT');

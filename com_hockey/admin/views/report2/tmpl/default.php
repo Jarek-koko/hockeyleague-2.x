@@ -11,6 +11,11 @@
 defined('_JEXEC') or die('Restricted access');
 $countP  = count($this->items);
 ?>
+<script type="text/javascript">
+    //<![CDATA[
+        window.addEvent('domready', function() { FancyForm.start(); });
+    //]]>
+</script>
 <div id="ht">
 <form action="index.php" method="post" name="adminForm" id="adminForm">
 <table class="relation">

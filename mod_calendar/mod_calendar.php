@@ -26,9 +26,9 @@ $today_month    = date( 'm', $time); //1
 $today_year     = date( 'Y', $time); //2011
 $today          = date( 'j',$time); //26
 
-$today_month    = 1;
-$today_year     = 2011;
-$today          = 26;
+//$today_month    = 1;
+//$today_year     = 2011;
+//$today          = 26;
 
 $post_month 	= (int)JRequest::getVar( 'month', 0, 'post','int');
 $post_year      = (int)JRequest::getVar( 'year', 0, 'post','int');
