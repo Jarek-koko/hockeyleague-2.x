@@ -11,6 +11,7 @@
     <description>MOD_TOPPLAYER_XML_DESCRIPTION</description>
     <files>
         <filename module="mod_topplayer">mod_topplayer.php</filename>
+        <folder>tmpl</folder>
         <filename>index.html</filename>
         <filename>mod_topplayer.xml</filename>
     </files>
