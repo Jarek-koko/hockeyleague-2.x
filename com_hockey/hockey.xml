@@ -7,7 +7,7 @@
     <authorUrl>http://hockeyleague.jarek.yum.pl/</authorUrl>
     <copyright>Klich Jarosław</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-    <version>0.0.90 Alfa</version>
+    <version>0.0.90 BETA</version>
     <description>Hockey League</description>
     
     <!-- Runs on install/uninstall/update; New in 1.6 -->

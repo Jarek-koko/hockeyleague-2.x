@@ -26,7 +26,7 @@ defined('_JEXEC') or die('Restricted access');
       
     });
 </script>
-<div class="componentheading"><?php echo JText::_('HOC_PLAYER_TITLE'); ?></div>
+<div class="componentheading"><?php echo JText::_('HOC_PLAYER_TITLE'); ?> - <?php echo $this->player->name ?></div>
 <div id="splayer">
 <dl id="sample" class="dropdown">
 <dt><a href="#"><span><?php echo JText::_('HOC_SELECT_PLAYER'); ?></span></a></dt>

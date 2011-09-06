@@ -26,8 +26,9 @@ class HockeyModelPlayer extends JModel {
 
     public function getPlayer() {
         if (!$this->_player) {
-            $query = "SELECT P.id,P.nazwisko,P.imie,P.pozycja,P.data_u,P.foto,P.wzrost ,P.waga, P.klubold ,P.klub, P.opis,P.nr "
+            $query = "SELECT P.id,P.nazwisko,P.imie,P.pozycja,P.data_u,P.foto,P.wzrost ,P.waga, P.klubold ,P.klub, P.opis,P.nr, T.name "
                     . "FROM #__hockey_players P "
+                    . "LEFT JOIN #__hockey_teams T ON  (T.id= P.klub) "
                     . "WHERE (P.id = " . $this->_db->Quote($this->_idplayer) . " )";
             $this->_db->setQuery($query);
             $this->_player = $this->_db->loadObject();

@@ -1,15 +1,15 @@
 <?php
 
 /*
- * @package Joomla 1.5
+ * @package Joomla 1.6
  * @copyright Copyright (C) 2005 Open Source Matters. All rights reserved.
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
  *
- * @component Hockey Team
+ * @component Hockey League
  * @copyright Copyright (C) Klich Jarosław
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die('Restricted access');  
 jimport('joomla.application.component.view');
 
 class HockeyViewPlayer extends JView {
