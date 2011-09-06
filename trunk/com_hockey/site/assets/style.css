@@ -2,6 +2,7 @@ a:link, a:visited {
     font-weight: normal;
     text-decoration: none;
 }
+a img {border:0}
 
 /* reports  */
 .bb table {margin:20px auto; width:100%;border-collapse: collapse; }
@@ -51,12 +52,12 @@ div.componentheading {background-color:#E6EECC; font-size:1.2em; font-weight:bol
 
 /* dla tabeli wybór kolejki w meczach */
 .square{width:99%;padding: 2px; margin: 15px auto; text-align:center; border: 1px solid #999;background-color:#F0F0F0; }
-.square p {text-align: center; font-weight: bold; padding:5px; font-size: 13px;}
+.square p {text-align: center; font-weight: bold; padding:5px; font-size: 13px;margin: 0;}
 table.kol { margin: 10px auto; border-collapse: separate; width: 100%; font-weight: bold; font-size: 110%}
 table.kol td { padding: 3px; text-align: center; background-color: #F9F9F9; border: 1px solid #BBBBBB;}
 table.kol td:hover { background-color: #9EA800;border: 1px solid #FFF; }
 table.kol .red {color:red;}
-table.kol a {padding:2px 10px;font-family:Helvetica,Arial; color:#555555;}
+table.kol a {padding:1px 10px;font-family:Helvetica,Arial; color:#555555;display: block;}
 
 .headtab {text-align:left; padding:5px 15px; background:transparent url(../assets/headred.gif) repeat-x scroll 50% 50%; color:#fff; font-weight:bold; height:25px}
 .headtab div { padding:3px; font-size: 13px;}
@@ -65,9 +66,13 @@ table.kol a {padding:2px 10px;font-family:Helvetica,Arial; color:#555555;}
 #wybor fieldset { background:#E6EECC; padding: 5px; margin-top:5px; border: 1px solid #CCC}
 #wybor legend {margin-left:15px;background:#FFF;border:1px solid #555;padding:4px; font-size: 13px}
 #wybor #selsez {text-align: center;}
-#wybor #selsez select {margin:0 10px;}
+#wybor #selsez select {margin:5px 10px;padding:1px; padding-left:5px; background-color:#EBEEEF}
+#wybor #selsez select option {padding:1px;padding-left:5px; }
 
-table.chmatch {margin:2px auto;}
+#wybor table.chmatch {margin:2px auto; border: 0;}
+#wybor table.chmatch tr, #wybor table.chmatch td {border:0;}
+#wybor table.chmatch select {margin:5px 10px;padding:1px; padding-left:5px; background-color:#EBEEEF}
+#wybor table.chmatch select option {padding:1px;padding-left:5px; }
 
 /* tabela points */
 table.tableleague{border-spacing:1px;border-collapse:separate;background-color:#CDCDCD;font-size:11px;width:100%;text-align:center;margin:10px 0 15px}
