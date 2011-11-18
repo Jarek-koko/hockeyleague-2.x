@@ -33,7 +33,7 @@ echo $this->loadTemplate('scoreboard');
     <div>
         <div class="opis">
             <div class="par"><?php echo JText::_('HOC_RECAP'); ?></div>
-            <div style="padding: 5px; text-align: left;"><?php echo $this->list ['text']; ?></div>
+              <div style="padding: 5px; text-align: left;"><?php echo JHTML::_('content.prepare', $this->list ['text'] ); ?></div>
         </div>
     </div>
     <div>
