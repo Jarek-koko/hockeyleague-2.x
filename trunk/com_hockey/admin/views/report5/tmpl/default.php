@@ -17,11 +17,26 @@ JHTML::_('behavior.formvalidation');
         /* ajax replace element select */
         $('id_team').addEvent('change', function(event) {
             event.stop();
-            var req = new Request({
+            var req = new Request.JSON({
                 method: 'get',
-                onRequest: function(){ $('id_player').innerHTML = '<option value="no">Loading ...</option>'; },
                 url: '<?php echo JURI::base(); ?>' + 'index.php?option=<?php echo $this->option; ?>&view=ajax&task=getg&format=raw&id_team='+ this.getSelected().get("value"),
-                onComplete: function(response) { $('id_player').innerHTML = response;}
+                onComplete: function(response) {            
+                    var id_player = $('id_player');
+                    id_player.empty();          
+                    if (response) {
+                        response.each(function(subcat) {
+                            var o = new Element('option', {
+                                'value':subcat.id,
+                                'html':subcat.name
+                            }).inject(id_player);                     
+                        });
+                    } else {
+                        var o = new Element('option', {
+                            'value': 'no',
+                            'html':'<?php echo JText::_('HOS_MUST_SELECT_TEAMS'); ?>'
+                        }).inject(id_player);             
+                    }
+                }
             }).send();
         });
         

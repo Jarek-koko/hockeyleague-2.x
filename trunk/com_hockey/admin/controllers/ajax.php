@@ -18,19 +18,16 @@ class HockeyControllerAjax extends JController {
         parent::__construct($config);
         JRequest::setVar('tmpl', 'component');
     }
-    
-    /* ajax for raport 3 
+
+    /* ajax for raport 3 -- goals 
      * display list of players
-     */ 
-    
+     */
+
     public function display() {
-        
-        $document =& JFactory::getDocument();
-        $document->setMimeEncoding('text/plain');
         $team = (int) JRequest::getVar('state', 0, 'get', 'int');
 
         if ($team == 0) {
-            echo '<option value="no">' . JText::_('HOS_NO_PLAYERS') . '</option>';
+            $players = array(array('id' => 'no', 'name' => JText::_('HOS_NO_PLAYERS')));
         } else {
             $db = & JFactory::getDBO();
             $query = "SELECT id , CONCAT_WS( ' ', nazwisko ,imie ) AS name "
@@ -40,26 +37,25 @@ class HockeyControllerAjax extends JController {
             $db->setQuery($query);
             $players = $db->loadAssocList();
 
-            if (count($players)) {
-                echo '<option value="no" >' . JText::_('HOS_MUST_SELECT_PLAYERS') . '</option>';
-                foreach ($players as $player) {
-                    echo '<option value="' . $player ['id'] . '">' . $player ['name'] . '</option>';
-                }
-            } else {
-                echo '<option value="no">' . JText::_('HOS_NO_PLAYERS') . '</option>';
-            }
+            if (!count($players)) {
+                $players = array(array('id' => 'no', 'name' => JText::_('HOS_NO_PLAYERS')));
+            } 
+            
+            $document = & JFactory::getDocument();
+            $document->setMimeEncoding('application/json');
+            echo json_encode($players);
         }
     }
+
     /*
      * ajax for raport 
      * display list of players
      */
+
     public function getg() {
-        $document =& JFactory::getDocument();
-        $document->setMimeEncoding('text/plain');
         $id_team = (int) JRequest::getVar('id_team', 0, 'get', 'int');
         if ($id_team == 0) {
-            echo '<option value="no">' . JText::_('HOS_NO_PLAYERS') . '</option>';
+             $players = array(array('id' => 'no', 'name' => JText::_('HOS_NO_PLAYERS')));
         } else {
             $db = & JFactory::getDBO();
             $query = "SELECT id , CONCAT_WS( ' ', nazwisko ,imie )AS name "
@@ -67,21 +63,25 @@ class HockeyControllerAjax extends JController {
                     . "WHERE klub=" . $db->Quote($id_team) . " AND pozycja='1'  AND published ='1' ORDER BY  nazwisko ";
 
             $db->setQuery($query);
-            $goalies = $db->loadAssocList();
-            if (count($goalies)) {
-                echo '<option value="no" >' . JText::_('HOS_MUST_SELECT_PLAYERS') . '</option>';
-                foreach ($goalies as $goalie) {
-                    echo '<option value="' . $goalie ['id'] . '">' . $goalie ['name'] . '</option>';
-                }
-            } else {
-                echo '<option value="no">' . JText::_('HOS_NO_PLAYERS') . '</option>';
-            }
+            $players = $db->loadAssocList();
+            
+            
+            if (!count($players)) {
+                $players = array(array('id' => 'no', 'name' => JText::_('HOS_NO_PLAYERS')));
+            } 
+            
+            $document = & JFactory::getDocument();
+            $document->setMimeEncoding('application/json');
+            echo json_encode($players);
+            
         }
     }
+
     /*
      * ajax for raport 
      * send json to display autocompleter 
      */
+
     public function iword() {
         $word = JRequest::getVar('value', '', 'post', 'string');
 
@@ -98,5 +98,7 @@ class HockeyControllerAjax extends JController {
             echo json_encode($data);
         }
     }
+
 }
+
 ?>

@@ -17,12 +17,13 @@ class HockeyViewReport2 extends JView {
 
     private $_type = null;
 
+
     public function display($tpl = null) {
 
-        JHTML::_( 'behavior.mootools' );
+        JHTML::_('behavior.mootools');
         $document = & JFactory::getDocument();
         $document->addScript(JURI::root(true) . "/administrator/components/com_hockey/assets/moocheck.js");
-        
+
         $id_match = (int) JRequest::getVar('id_match', 0, 'get', 'INT');
         $this->_type = (int) JRequest::getVar('type', 5, '', 'INT');
         $option = JRequest::getCmd('option');
@@ -46,6 +47,13 @@ class HockeyViewReport2 extends JView {
     protected function _addToolbar() {
         $info = HockeyHelperSelectSeason::getNameSez();
         JToolBarHelper::title(JText::_('HOCKEY') . ' : ' . $info, 'logo.png');
+        // Add a preview button
+        $bar = & JToolBar::getInstance('toolbar');
+        $url =  JRoute::_('index.php?option=com_hockey&view=players');
+        $bar->appendButton('Custom', '<a class="button" href="'.$url.'" target="_blank"><span class="icon-32-new"></span>' . JText::_('HOS_ADD_PLAYER') . '</a>', 'new');
+
+          
+
         JToolBarHelper::custom('cancel', 'back.png', 'back.png', 'back', false);
         JToolBarHelper::save();
     }
