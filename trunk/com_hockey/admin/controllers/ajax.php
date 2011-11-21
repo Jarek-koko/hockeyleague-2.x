@@ -35,10 +35,11 @@ class HockeyControllerAjax extends JController {
                     . "WHERE klub=" . $db->Quote($team) . " AND published='1' ORDER BY nazwisko";
 
             $db->setQuery($query);
-            $players = $db->loadAssocList();
-
-            if (!count($players)) {
-                $players = array(array('id' => 'no', 'name' => JText::_('HOS_NO_PLAYERS')));
+            $players1 = $db->loadAssocList();
+            $players = array(array('id' => 'no', 'name' => JText::_('HOS_NO_PLAYERS')));
+            
+            if (count($players1)) {
+                 $players = array_merge ($players ,$players1);
             } 
             
             $document = & JFactory::getDocument();
