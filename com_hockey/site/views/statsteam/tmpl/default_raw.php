@@ -93,4 +93,4 @@ $show = null;
     endforeach; ?>
     </tbody></table>
     <div class="leg_p"><?php echo JText::_('HOC_STATS_INFO_P') ?><br /><?php echo JText::_('HOC_STATS_INFO') ?></div>
-<? endif ?>
+<?php endif ?>
