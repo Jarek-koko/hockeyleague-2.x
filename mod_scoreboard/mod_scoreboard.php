@@ -19,8 +19,8 @@ if (!count($list)) {
 $document = & JFactory::getDocument ();
 $document->addScript(JURI::base(true) . '/components/com_hockey/assets/jquery.js');
 
-$path1 = JURI::base(true) . 'images/hockey/numbers/';
-$path2 = JURI::base(true) . 'images/hockey/teams/';
+$path1 = 'images/hockey/numbers/';
+$path2 = 'images/hockey/teams/';
 $info = $params->get('info', '');
 $title = $params->get('title', 'Raport');
 $width = (int) $params->get('width', 800);
