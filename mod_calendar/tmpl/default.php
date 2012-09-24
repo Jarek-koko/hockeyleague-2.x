@@ -13,41 +13,41 @@ $path = JURI::base(true) . '/images/hockey/teams/';
 if ($show_tooltips == 1) {
 ?>
 <script type="text/javascript">
-//<![CDATA[
-jQuery.noConflict();
-jQuery(document).ready(function($){
-$("td.qhome, td.qaway").hover(function(e){
-    var str = parseInt($('span',this).first().text());
-    if (str !== null) {
-        $("body").append('<div id="qtooltip"><div><img src="<?php echo JURI::base(true); ?>/components/com_hockey/assets/loading.gif" /></div></div>');
-        var Url = 'index.php?option=com_hockey&view=modcal&id='+ str + '&format=raw';
-        $.ajax({
-            url: Url,
-            dataType: 'html',
-            cache: false,
-            success: function (data) { $("#qtooltip").html(data); },
-            error : function () { $("#qtooltip").html('<p>Data not found</p>');}
-        });
-        $("#qtooltip")
-        .css("top",(  $(this).offset().top - 140) + "px")
-        .css("left",(  $(this).offset().left - 150) + "px")
-        .fadeIn("fast")
-    }
-},
-function(){
-    $("#qtooltip").remove();
-});     
-});
+    //<![CDATA[
+    jQuery.noConflict();
+    jQuery(document).ready(function($){
+    $("td.qhome, td.qaway").hover(function(e){
+        var str = parseInt($('span',this).first().text());
+        if (str !== null) {
+            $("body").append('<div id="qtooltip"><div><img src="<?php echo JURI::base(true); ?>/components/com_hockey/assets/loading.gif" /></div></div>');
+            var Url = 'index.php?option=com_hockey&view=modcal&id='+ str + '&format=raw';
+            $.ajax({
+                url: Url,
+                dataType: 'html',
+                cache: false,
+                success: function (data) { $("#qtooltip").html(data); },
+                error : function () { $("#qtooltip").html('<p>Data not found</p>');}
+            });
+            $("#qtooltip")
+            .css("top",(  $(this).offset().top - 140) + "px")
+            .css("left",(  $(this).offset().left - 150) + "px")
+            .fadeIn("fast")
+        }
+    },
+    function(){
+        $("#qtooltip").remove();
+    });     
+    });
 
-function submitForm(month,year){
-var f = document.formCal;
-if(f){
-    f.elements['month'].value = month;
-    f.elements['year'].value = year;
-    f.submit();
-}
-}
-//]]>
+    function submitForm(month,year){
+    var f = document.formCal;
+    if(f){
+        f.elements['month'].value = month;
+        f.elements['year'].value = year;
+        f.submit();
+    }
+    }
+    //]]>
 </script>
 <?php } ?>
 <div class="calq">
@@ -94,7 +94,9 @@ if(f){
 
             $show .= '<td ' . $style . ' ' . $idtoday . '>';
             if ($mdata) {
+                $show .= '<a style="display:block;height:100%;width:100%" href="'.JRoute::_('index.php?option=com_hockey&view=report&id='.$idmatch).'">';
                 $show .= '<span style="display:none">'.$idmatch.'</span><span class="qtooltip">' . $day . '</span>';
+                $show .= '</a>';
             }
             $show .= '</td>';
         } else {
@@ -113,7 +115,7 @@ if(f){
     <li><div class="qaway squ"></div><span class="qlabel"> - <?php echo JText::_('MOD_CAL_AWAY'); ?></span></li>
 </ul>
 </div>
-<input type="hidden" name="month" value="" />
-<input type="hidden" name="year" value="" />
+    <input type="hidden" name="month" value="" />
+    <input type="hidden" name="year" value="" />
 </form>
 </div>

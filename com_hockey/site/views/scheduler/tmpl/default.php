@@ -22,13 +22,14 @@ echo $this->loadTemplate('square');
 </div>
 <table>
 <thead>
-<tr><th><?php echo JText::_('HOC_DATE'); ?></th>
-    <th><?php echo JText::_('HOC_HOME'); ?></th>
-    <th>&nbsp;</th>
-    <th><?php echo JText::_('HOC_VISITORS'); ?></th>
-    <th>- - -</th>
-    <th>- - -</th>
-</tr>
+    <tr>
+        <th><?php echo JText::_('HOC_DATE'); ?></th>
+        <th><?php echo JText::_('HOC_HOME'); ?></th>
+        <th>&nbsp;</th>
+        <th><?php echo JText::_('HOC_VISITORS'); ?></th>
+        <th>- - -</th>
+        <th>- - -</th>
+    </tr>
 </thead>
 <tbody>
 <?php
@@ -39,7 +40,9 @@ for ($i = 0; $i < $n; $i++) {
     $row = &$this->rows [$i];
 ?>
     <tr>
-        <td><?php echo JHTML::_('date', $row->data, JText::_('DATE_FORMAT_LC4')) ?></td>
+        <td><?php echo JHTML::_('date', $row->data, JText::_('DATE_FORMAT_LC4')) ?>
+            <?php if ($this->params->get('show_time')) echo '&nbsp;&nbsp;&nbsp;'.$row->time; ?>
+        </td>
         <td><?php echo $row->team1; ?></td>
         <td>
         <?php
@@ -55,24 +58,24 @@ for ($i = 0; $i < $n; $i++) {
          .($row->w2p3 != null ? $row->w2p3 : '-');
         echo ')</span>';
         ?>
-    </td>
-    <td><?php echo $row->team2; ?></td>
-    <td>
-        <?php
-        if ($row->m_karne == "T") echo JText::_('HOC_PENALTY_SHORT');
-        elseif ($row->m_dogr == "T") echo JText::_('HOC_OVERTIME_SHORT');
-        else echo '--'; ?>
-    </td>
-    <td>
-        <?php
-        $idlink = $this->params->get('idteamlink');
-        if    (($row->wynik_1 != null) && ($row->wynik_2  != null) && (($idlink == 0 ) || ($idlink == $row->druzyna1 ) || ($idlink == $row->druzyna2 ))) {
-            echo '<a href="' . JRoute::_('index.php?option=com_hockey&view=report&id=' . $row->id) . '">
-                 <img src="' . JURI::base(true) . '/components/com_hockey/assets/plik.png" alt="' . JText::_('HOC_RAPORT') . '" /></a>';
-        }
-        ?>
-            </td>
-        </tr>
+        </td>
+        <td><?php echo $row->team2; ?></td>
+        <td>
+            <?php
+            if ($row->m_karne == "T") echo JText::_('HOC_PENALTY_SHORT');
+            elseif ($row->m_dogr == "T") echo JText::_('HOC_OVERTIME_SHORT');
+            else echo '--'; ?>
+        </td>
+        <td>
+            <?php
+            $idlink = $this->params->get('idteamlink');
+            if    (($row->wynik_1 != null) && ($row->wynik_2  != null) && (($idlink == 0 ) || ($idlink == $row->druzyna1 ) || ($idlink == $row->druzyna2 ))) {
+                echo '<a href="' . JRoute::_('index.php?option=com_hockey&view=report&id=' . $row->id) . '">
+                     <img src="' . JURI::base(true) . '/components/com_hockey/assets/plik.png" alt="' . JText::_('HOC_RAPORT') . '" /></a>';
+            }
+            ?>
+        </td>
+     </tr>
 <?php
     }
 ?>

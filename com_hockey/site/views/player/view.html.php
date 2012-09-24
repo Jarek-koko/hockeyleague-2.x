@@ -1,5 +1,4 @@
 <?php
-
 /*
  * @package Joomla 1.6
  * @copyright Copyright (C) 2005 Open Source Matters. All rights reserved.

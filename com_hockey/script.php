@@ -22,7 +22,7 @@ class com_hockeyInstallerScript {
      */
     function install($parent) {
         // $parent is the class calling this method
-          echo '<p>' . JText::_('COM_HOCKEY_INSTALL_TEXT') . '</p>';
+          echo '<p>Instalation Hockey League</p>';
       //  $parent->getParent()->setRedirectURL('index.php?option=com_hockey');
     }
 

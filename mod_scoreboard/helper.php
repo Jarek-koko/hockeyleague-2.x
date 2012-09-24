@@ -18,7 +18,7 @@ class modScoreboardHelper {
         $id = intval($params->get('id', 0));
         $id = ($id == 0) ? ' (SELECT id FROM #__hockey_match ORDER BY id DESC LIMIT 1) ' : $id;
 
-        $query = "SELECT t1.id, t2.name AS team1,t1.w1p1,t1.w2p1,t1.w1p2,t1.w2p2,"
+        $query = "SELECT t1.id, t2.name AS team1,t1.w1p1,t1.w2p1,t1.w1p2,t1.w2p2,t1.time,t1.data as date,"
                 . "t1.w1p3,t1.w2p3,t1.w1ot,t1.w2ot,t1.w1so,t1.w2so,t3.name AS team2,"
                 . "t1.wynik_1, t1.wynik_2, t2.logo AS logo1,t3.logo AS logo2 "
                 . "FROM #__hockey_match t1 "

@@ -65,7 +65,7 @@ function update<?php echo $module->id; ?>()
         jQuery('#minutes<?php echo $module->id; ?>').html("<b>"+this.min+"</b>");
         jQuery('#seconds<?php echo $module->id; ?>').html("<b>"+this.sec+"</b>");
     }
-    else if (Math.abs(this.sec) < (3 * 3600)) {
+    else if (Math.abs(this.sec) < (2 * 3600)) {
         jQuery('#countdown<?php echo $module->id; ?>').html('<span><b class="mstart"><?php echo $mstart; ?></b><span>');
     }
     else {

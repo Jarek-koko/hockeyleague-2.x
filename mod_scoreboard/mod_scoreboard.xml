@@ -7,7 +7,7 @@
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>Jarek.koko+HockeyTeam@gmail.com</authorEmail>
     <authorUrl></authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>MOD_SCOREBOARD_XML_DESCRIPTION</description>
     <files>
         <filename module="mod_scoreboard">mod_scoreboard.php</filename>
@@ -44,8 +44,8 @@
                     default="1" 
                     label="MOD_SCOREBOARD_FIELD_BUTTON_LABEL" 
                     description="MOD_SCOREBOARD_FIELD_BUTTON_DESC">
-                        <option value="0">MOD_SCOREBOARD_NO</option>
-                        <option value="1">MOD_SCOREBOARD_YES</option>
+                    <option value="0">MOD_SCOREBOARD_NO</option>
+                    <option value="1">MOD_SCOREBOARD_YES</option>
                 </field>
                 <field 
                     name="popup" 
@@ -53,8 +53,8 @@
                     default="1" 
                     label="MOD_SCOREBOARD_FIELD_POPUP_LABEL" 
                     description="MOD_SCOREBOARD_FIELD_POPUP_DESC">
-                        <option value="0">MOD_SCOREBOARD_NO</option>
-                        <option value="1">MOD_SCOREBOARD_YES</option>
+                    <option value="0">MOD_SCOREBOARD_NO</option>
+                    <option value="1">MOD_SCOREBOARD_YES</option>
                 </field>
                 <field 
                     name="title" 
@@ -84,8 +84,17 @@
                     default="1" 
                     label="MOD_SCOREBOARD_FIELD_COU_LABEL" 
                     description="MOD_SCOREBOARD_FIELD_COU_DESC">
-                        <option value="0">MOD_SCOREBOARD_NO</option>
-                        <option value="1">MOD_SCOREBOARD_YES</option>
+                    <option value="0">MOD_SCOREBOARD_NO</option>
+                    <option value="1">MOD_SCOREBOARD_YES</option>
+                </field>
+                <field 
+                    name="get_gt" 
+                    type="radio" 
+                    default="0" 
+                    label="MOD_SCOREBOARD_FIELD_GETGT_LABEL" 
+                    description="MOD_SCOREBOARD_FIELD_GETGT_DESC">
+                    <option value="0">MOD_SCOREBOARD_NO</option>
+                    <option value="1">MOD_SCOREBOARD_YES</option>
                 </field>
                 <field 
                     name="day" 
@@ -181,7 +190,7 @@
                     description="MOD_SCOREBOARD_FIELD_LSHOUTOUTS_DESC"
                 />
             </fieldset>
-             <fieldset name="advanced">
+            <fieldset name="advanced">
                 <field
                     name="layout"
                     type="modulelayout"

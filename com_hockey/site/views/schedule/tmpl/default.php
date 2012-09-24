@@ -41,7 +41,9 @@ if ($month_tmp != $row->mm) {
         <tbody>
 <?php } ?>
 <tr>
-    <td><?php echo JHTML::_('date', $row->data, JText::_('DATE_FORMAT_LC4')) ?></td>
+    <td><?php echo JHTML::_('date', $row->data, JText::_('DATE_FORMAT_LC4')) ?>
+         <?php if ($this->params->get('show_time')) echo '&nbsp;&nbsp;&nbsp;'.$row->time; ?>
+    </td>
     <td><?php echo $row->team1; ?></td>
     <td>
         <?php

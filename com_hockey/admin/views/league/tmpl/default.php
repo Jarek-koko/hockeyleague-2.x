@@ -21,6 +21,11 @@ JHTML::_('behavior.formvalidation');
             return;
         }
 
+        document.formvalidator.setHandler('timematch',function(value) {
+            regex=  /^([01]?[0-9]|2[0-3]):[0-5][0-9]/;
+            return regex.test(value);
+        });
+
         if( document.formvalidator.isValid( form ) )
         {
             submitform( pressbutton );
@@ -42,17 +47,19 @@ JHTML::_('behavior.formvalidation');
         <tr>
             <th>&nbsp;</th>
             <th style="width: 150px;"><?php echo JText::_('HOA_DATE_MATCHE');?></th>
+            <th style="width: 100px;"><?php echo JText::_('HOA_TIME_START'); ?></th>
             <th style="width: 150px;"><?php echo JText::_('HOA_NR_MATCHDAYS'); ?></th>
             <th style="width: 200px;"><?php echo JText::_('HOA_HOME');?></th>
             <th style="width: 200px;"><?php echo JText::_('HOA_VISITORS');?></th>
             <th>&nbsp;</th>
         </tr>
     </thead>
-   <tfoot><tr><td colspan="6">&nbsp;</td></tr></tfoot>
+   <tfoot><tr><td colspan="7">&nbsp;</td></tr></tfoot>
     <tbody>
         <tr style="text-align:center;">
             <td>&nbsp;</td>
             <td><?php echo JHTML::_('calendar', $this->row->data , 'data', "data", '%Y-%m-%d', array('class' => 'inputbox required', 'size' => '10', 'maxlength' => '10')); ?></td>
+            <td><input type="text" name="time" value="<?php echo $tt = ($this->row->time) ? $this->row->time :'00:00' ?>" size="4" maxlength="5"  class="required validate-timematch" /></td>
             <td><input type="text" name="id_kolejka" id="id_kolejka" value="<?php echo $this->kolejka_nr; ?>" size="3" maxlength="3"  class="required validate-numeric" /></td>
             <td><?php echo JHTML::_ ( 'select.genericList', $this->kl, 'druzyna1' , 'class="inputbox"', 'value', 'text',$this->row->druzyna1); ?></td>
             <td><?php echo JHTML::_ ( 'select.genericlist', $this->kl, 'druzyna2' , 'class="inputbox"', 'value', 'text',$this->row->druzyna2); ?></td>
@@ -61,12 +68,12 @@ JHTML::_('behavior.formvalidation');
     </tbody>
 </table>
 <?php echo JHtml::_('form.token'); ?>
-<input type="hidden" name="id" value="<?php echo $this->row->id; ?>" />
-<input type="hidden" name="published" value="<?php echo  $this->row->published  ?>" />
-<input type="hidden" name="option" value="<?php echo $this->option; ?>" />
-<input type="hidden" name="view" value="league" />
-<input type="hidden" name="task" value="" />
-<input type="hidden" name="id_system" value="<?php echo $this->sez; ?>" />
-<input type="hidden" name="type_of_match" value="0" />
+    <input type="hidden" name="id" value="<?php echo $this->row->id; ?>" />
+    <input type="hidden" name="published" value="<?php echo  $this->row->published  ?>" />
+    <input type="hidden" name="option" value="<?php echo $this->option; ?>" />
+    <input type="hidden" name="view" value="league" />
+    <input type="hidden" name="task" value="" />
+    <input type="hidden" name="id_system" value="<?php echo $this->sez; ?>" />
+    <input type="hidden" name="type_of_match" value="0" />
 </form>
 </div>

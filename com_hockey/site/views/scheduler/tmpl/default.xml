@@ -20,14 +20,18 @@
                 query="SELECT id AS value, nazwa AS idseason FROM #__hockey_system order by id desc" 
             />
             <field 
-            name="idteamlink" 
-            type="sqlparams" 
-            default="1" 
-            label="HOC_SELECT_TEAM_REPORT_LABEL" 
-            description="HOC_SELECT_TEAM_REPORT_DESC" 
-            query="SELECT id AS value, name AS idteamlink FROM #__hockey_teams WHERE published=1 order by id desc"
-            opt1="HOC_ALL_TEAMS" translate="true"
+                name="idteamlink" 
+                type="sqlparams" 
+                default="1" 
+                label="HOC_SELECT_TEAM_REPORT_LABEL" 
+                description="HOC_SELECT_TEAM_REPORT_DESC" 
+                query="SELECT id AS value, name AS idteamlink FROM #__hockey_teams WHERE published=1 order by id desc"
+                opt1="HOC_ALL_TEAMS" translate="true"
           />
+            <field name="show_time" type="radio" default="1" label="HOC_BASIC_SHOW_TIME_LABEL" description="">
+                <option value="0">HOC_HIDE</option>
+                <option value="1">HOC_SHOW</option>
+            </field>
         </fieldset>
     </fields>
 </metadata>
