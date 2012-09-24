@@ -95,5 +95,4 @@
         <move file="${builddir}/${NAME}/admin/hockey.xml" todir="${builddir}/${NAME}" verbose="${verbose}"/>
         <move file="${builddir}/${NAME}/admin/script.php" todir="${builddir}/${NAME}" verbose="${verbose}" />
     </target>
-    
 </project>

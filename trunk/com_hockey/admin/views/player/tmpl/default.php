@@ -60,7 +60,7 @@ JHTML::_('behavior.formvalidation');
                     <td><input class="text_area required" type="text" name="imie" id="imie" size="50" maxlength="50" value="<?php echo $this->items->imie; ?>" /></td>
                     <td rowspan="10" colspan="2" align="center">
                         <?php
-                        if (eregi("gif|jpg|png", $this->items->foto)) {
+                        if (preg_match("/.(gif|jpg|png)$/i", $this->items->foto))  {
                             echo '<img src="' . JURI::root(true) . '/images/hockey/players/' . $this->items->foto . '" name="imagelib" />';
                         } else {
                             echo '<img src="' . JURI::root(true) . '/images/hockey/players/nophoto.jpg" name="imagelib" />';
@@ -70,7 +70,8 @@ JHTML::_('behavior.formvalidation');
                 <tr>
                     <td  class="key"><?php echo JText::_('HOC_PLAYER_BIRTHDAY'); ?> :</td>
                     <td>
-                        <?php echo JHTML::_('calendar', $this->items->data_u, 'data_u', "data_u", '%Y-%m-%d', array('class' => 'inputbox', 'size' => '10', 'maxlength' => '10')); ?>
+                         <?php  $tm = ($this->items->data_u == "") ? '0000-00-00' : $this->items->data_u;  ?>
+                        <?php echo JHTML::_('calendar', $tm , 'data_u', "data_u", '%Y-%m-%d', array('class' => 'inputbox', 'size' => '10', 'maxlength' => '10')); ?>
                     </td>
                 </tr>
                 <tr>

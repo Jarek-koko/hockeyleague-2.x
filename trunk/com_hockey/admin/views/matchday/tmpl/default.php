@@ -21,6 +21,11 @@ JHTML::_('behavior.formvalidation');
             return;
         }
 
+        document.formvalidator.setHandler('timematch',function(value) {
+            regex=  /^([01]?[0-9]|2[0-3]):[0-5][0-9]/;
+            return regex.test(value);
+        });
+
         if( document.formvalidator.isValid( form ) )
         {
             submitform( pressbutton );
@@ -42,6 +47,7 @@ JHTML::_('behavior.formvalidation');
             <th>&nbsp;</th>
             <th style="width: 50px;">ID</th>
             <th style="width: 150px;"><?php echo JText::_('HOA_DATE_MATCHE'); ?></th>
+            <th style="width: 100px;"><?php echo JText::_('HOA_TIME_START'); ?></th>
             <th style="width: 150px;"><?php echo JText::_('HOA_NR_MATCHDAYS'); ?></th>
             <th style="width: 200px;"><?php echo JText::_('HOA_HOME'); ?></th>
             <th style="width: 200px;"><?php echo JText::_('HOA_VISITORS'); ?></th>
@@ -54,6 +60,7 @@ JHTML::_('behavior.formvalidation');
                 <td>&nbsp;</td>
                 <td><?php echo $i + 1; ?></td>
                 <td><?php echo JHTML::_('calendar', $this->data , 'data'.$i , "data".$i , '%Y-%m-%d', array('class' => 'inputbox required', 'size' => '10', 'maxlength' => '10')); ?></td>
+                <td><input type="text" name="time<?php echo $i; ?>" value="00:00" size="4" maxlength="5"  class="required validate-timematch" /></td>
                 <td><input type="text" name="kolejka_nr<?php echo $i; ?>" value="<?php echo $this->kolejka_nr; ?>" size="3" class="required validate-numeric"  /></td>
                 <td><?php echo JHTML::_('select.genericList', $this->kl, 'druzyna1' . $i, 'class="inputbox"', 'value', 'text'); ?></td>
                 <td><?php echo JHTML::_('select.genericlist', $this->kl, 'druzyna2' . $i, 'class="inputbox" ', 'value', 'text'); ?></td>

@@ -13,7 +13,7 @@
             default="1" 
             label="HOC_SELECT_TEAM_LABEL" 
             description="HOC_SELECT_TEAM_DESC" 
-            query="SELECT id AS value, name AS idteam FROM #__hockey_teams WHERE published=1 order by id desc"
+            query="SELECT id AS value, name AS idteam FROM #__hockey_teams WHERE published=1 order by name"
             translate="true"
     />
     </fieldset>

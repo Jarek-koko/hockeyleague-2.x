@@ -1,14 +1,4 @@
-DROP TABLE IF EXISTS `#__hockey_tabela`;
-DROP TABLE IF EXISTS `#__hockey_match_goals`;
-DROP TABLE IF EXISTS `#__hockey_match_goalie`;
-DROP TABLE IF EXISTS `#__hockey_match_penalty`;
-DROP TABLE IF EXISTS `#__hockey_match_players`;
-DROP TABLE IF EXISTS `#__hockey_match`;
-DROP TABLE IF EXISTS `#__hockey_players`;
-DROP TABLE IF EXISTS `#__hockey_referee`;
-DROP TABLE IF EXISTS `#__hockey_teams`;
-DROP TABLE IF EXISTS `#__hockey_system`;
-
+SET FOREIGN_KEY_CHECKS=0;
 
 CREATE TABLE IF NOT EXISTS `#__hockey_match` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -20,6 +10,7 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match` (
   `m_karne` enum('T','F') DEFAULT NULL,
   `id_kolejka` int(10) NOT NULL DEFAULT '0',
   `data` date DEFAULT NULL,
+  `time` varchar(5) NOT NULL DEFAULT '00:00',
   `id_system` int(11) NOT NULL DEFAULT '0',
   `published` tinyint(1) NOT NULL DEFAULT '0',
   `type_of_match` tinyint(1) NOT NULL DEFAULT '0',
@@ -42,8 +33,9 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match` (
   PRIMARY KEY (`id`),
   KEY `id_system` (`id_system`),
   KEY `id_kolejka` (`id_kolejka`),
-  KEY `type_of_match` (`type_of_match`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+  KEY `type_of_match` (`type_of_match`),
+  CONSTRAINT `FK_#__hockey_match` FOREIGN KEY (`id_system`) REFERENCES `#__hockey_system` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__hockey_match_goalie` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -56,7 +48,8 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match_goalie` (
   PRIMARY KEY (`id`),
   KEY `NewIndex0` (`id_player`),
   KEY `NewIndex1` (`id_match`),
-  KEY `NewIndex2` (`id_team`)
+  KEY `NewIndex2` (`id_team`),
+  CONSTRAINT `FK_#__hockey_match_goalie` FOREIGN KEY (`id_match`) REFERENCES `#__hockey_match` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__hockey_match_goals` (
@@ -76,8 +69,9 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match_goals` (
   KEY `NewIndex1` (`id_team`),
   KEY `NewIndex2` (`shooter`),
   KEY `NewIndex3` (`assist1`),
-  KEY `NewIndex4` (`assist2`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+  KEY `NewIndex4` (`assist2`),
+  CONSTRAINT `FK_#__hockey_match_goals` FOREIGN KEY (`id_match`) REFERENCES `#__hockey_match` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__hockey_match_penalty` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -91,7 +85,8 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match_penalty` (
   PRIMARY KEY (`id`),
   KEY `NewIndex0` (`id_match`),
   KEY `NewIndex1` (`id_player`),
-  KEY `NewIndex2` (`id_team`)
+  KEY `NewIndex2` (`id_team`),
+  CONSTRAINT `FK_#__hockey_match_penalty` FOREIGN KEY (`id_match`) REFERENCES `#__hockey_match` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__hockey_match_players` (
@@ -102,8 +97,9 @@ CREATE TABLE IF NOT EXISTS `#__hockey_match_players` (
   PRIMARY KEY (`id`),
   KEY `NewIndex0` (`id_match`),
   KEY `NewIndex1` (`id_player`),
-  KEY `NewIndex2` (`id_team`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+  KEY `NewIndex2` (`id_team`),
+  CONSTRAINT `FK_#__hockey_players_in_match` FOREIGN KEY (`id_match`) REFERENCES `#__hockey_match` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__hockey_players` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -124,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `#__hockey_players` (
   KEY `nazwisko` (`nazwisko`),
   KEY `klub` (`klub`),
   KEY `pozycja` (`pozycja`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__hockey_referee` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -134,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `#__hockey_referee` (
   `review_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `nazwisko` (`lname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__hockey_system` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -154,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `#__hockey_system` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `nazwa` (`nazwa`),
   KEY `NewIndex1` (`myteam`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__hockey_tabela` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -172,8 +168,9 @@ CREATE TABLE IF NOT EXISTS `#__hockey_tabela` (
   `grupa` tinyint(3) unsigned DEFAULT '0',
   `published` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  KEY `tabela_system` (`id_system`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+  KEY `tabela_system` (`id_system`),
+  CONSTRAINT `FK_#__hockey_tabela` FOREIGN KEY (`id_system`) REFERENCES `#__hockey_system` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__hockey_teams` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -185,23 +182,6 @@ CREATE TABLE IF NOT EXISTS `#__hockey_teams` (
   `review_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-
-ALTER TABLE `#__hockey_match`
-  ADD CONSTRAINT `FK_#__hockey_match` FOREIGN KEY (`id_system`) REFERENCES `#__hockey_system` (`id`) ON DELETE CASCADE;
-
-ALTER TABLE `#__hockey_match_goalie`
-  ADD CONSTRAINT `FK_#__hockey_match_goalie` FOREIGN KEY (`id_match`) REFERENCES `#__hockey_match` (`id`) ON DELETE CASCADE;
-
-ALTER TABLE `#__hockey_match_goals`
-  ADD CONSTRAINT `FK_#__hockey_match_goals` FOREIGN KEY (`id_match`) REFERENCES `#__hockey_match` (`id`) ON DELETE CASCADE;
-
-ALTER TABLE `#__hockey_match_penalty`
-  ADD CONSTRAINT `FK_#__hockey_match_penalty` FOREIGN KEY (`id_match`) REFERENCES `#__hockey_match` (`id`) ON DELETE CASCADE;
-
-ALTER TABLE `#__hockey_match_players`
-  ADD CONSTRAINT `FK_#__hockey_players_in_match` FOREIGN KEY (`id_match`) REFERENCES `#__hockey_match` (`id`) ON DELETE CASCADE;
-
-ALTER TABLE `#__hockey_tabela`
-  ADD CONSTRAINT `FK_#__hockey_tabela` FOREIGN KEY (`id_system`) REFERENCES `#__hockey_system` (`id`) ON DELETE CASCADE;
+SET FOREIGN_KEY_CHECKS=1;

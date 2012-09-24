@@ -21,6 +21,7 @@ class TableMatch extends JTable {
 	var $m_karne = null;
 	var $id_kolejka = null;
 	var $data = null;
+        var $time = null;
 	var $info = null;
 	var $id_system = null;
 	var $published = null;
@@ -60,6 +61,7 @@ class TableMatch extends JTable {
 			$this->setError ( JText::_ ( 'HOC_NO_DAYDATE' ) );
 			return false;
 		}
+                
 		if (trim ( $this->id_kolejka == '' )) {
 			$this->setError ( JText::_ ( 'HOC_NO_QMATCHEDEY' ) );
 			return false;

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>  
+    <layout title="HOC_FLASH_VIEW_DEFAULT_TITLE">
+        <message>
+	  <![CDATA[HOC_FLASH_VIEW_DEFAULT_DESC]]>
+        </message>
+    </layout>  
+    <fields name="params">
+        <fieldset name="basic" label="HOC_BASIC_OPTIONS_FIELDSET">
+            <field 
+                name="idteam" 
+                type="sql" 
+                default="1" 
+                label="HOC_SELECT_TEAM_LABEL" 
+                description="HOC_SELECT_TEAM_DESC" 
+                query="SELECT id AS value, name AS idteam FROM #__hockey_teams WHERE published=1 order by name"
+                translate="true"
+    />
+            <field 
+                name="htitle" 
+                type="text" 
+                default="Players presentation" 
+                label="HOC_FLASH_TITLE_TEAM_LABEL" 
+                description="HOC_FLASH_TITLE_TEAM_DESC" 
+                size="40" 
+    />
+        </fieldset>
+    </fields>
+</metadata>

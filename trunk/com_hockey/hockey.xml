@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="1.7.0" method="upgrade">
     <name>COM_HOCKEY</name>
-    <creationDate>August 2011</creationDate>
+    <creationDate>August 2012</creationDate>
     <author>Klich Jarosław</author>
     <authorEmail>Jarek.koko+HockeyLeague@gmail.com</authorEmail>
     <authorUrl>http://hockeyleague.jarek.yum.pl/</authorUrl>
     <copyright>Klich Jarosław</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-    <version>0.0.90 BETA</version>
+    <version>0.0.95</version>
     <description>Hockey League</description>
     
     <!-- Runs on install/uninstall/update; New in 1.6 -->

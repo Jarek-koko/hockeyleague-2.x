@@ -2,7 +2,7 @@
 <metadata>
     <layout title="HOC_TEAMS_VIEW_DEFAULT_TITLE">
         <message>
-            <![CDATA[HOC_TESMS_VIEW_DEFAULT_DESC]]>
+            <![CDATA[HOC_TEAMS_VIEW_DEFAULT_DESC]]>
          </message>
     </layout>
     <fields name="params">

@@ -26,16 +26,33 @@ $title = $params->get('title', 'Raport');
 $width = (int) $params->get('width', 800);
 $height = (int) $params->get('height', 600);
 $popup = (int) $params->get('popup', 1);
+
 $show_countdown = (int) $params->get('show_countdown', 1);
 $show_button = (int) $params->get('show_button', 1);
-$day = (int) $params->get('day', 01);
-$month = (int) $params->get('month', 01);
-$year = (int) $params->get('year', 2011);
-$hour = (int) $params->get('hour', 01);
-$minute = (int) $params->get('minute', 01);
-$second = (int) $params->get('second', 01);
+
+$get_gt = (int) $params->get('get_gt', 0);
+
+ if ($get_gt == 0) {
+    $day =      (int) $params->get('day', 01);
+    $month =    (int) $params->get('month', 01);
+    $year =     (int) $params->get('year', 2012);
+    $hour =     (int) $params->get('hour', 01);
+    $minute =   (int) $params->get('minute', 01);
+    $second =   (int) $params->get('second', 01);
+ } else {
+    $arraydate = explode("-", $list['date']);
+    $arraytime = explode(":", $list['time']);
+    $day =      (int) $arraydate[2];
+    $month =    (int) $arraydate[1];    
+    $year =     (int) $arraydate[0];
+    $hour =     (int) $arraytime[0];
+    $minute =   (int) $arraytime[1];
+    $second =   (int) '00';
+ }
+
 $sovertime = $params->get('t_sovertime', 'sovertime');
 $shoutouts = $params->get('t_shoutouts', 'shoutouts');
+
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
 $mstart = $params->get('m_start', 'Match is underway');

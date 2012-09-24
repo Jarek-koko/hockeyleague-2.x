@@ -11,7 +11,11 @@
 defined('_JEXEC') or die('Restricted access');
 $path = 'images/hockey/teams/';
 ?>
-<div class="pop-title"><?php echo JHTML::_('date', $this->list['data'], JText::_('DATE_FORMAT_LC3')); ?></div>
+<div class="pop-title">
+    <?php echo $this->list['nazwa']; ?>&nbsp;&nbsp;
+    <?php echo JHTML::_('date', $this->list['data'], JText::_('DATE_FORMAT_LC3')); ?>&nbsp;&nbsp;
+    <?php echo $this->list['time']; ?>
+</div>
 <div class="pop-board">
 <div>
     <span class="pop-l"><?php echo $this->list['home']; ?></span>

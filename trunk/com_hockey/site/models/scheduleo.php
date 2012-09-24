@@ -37,7 +37,7 @@ class HockeyModelScheduleo extends JModel {
     
     public function getList() {
         if ($this->_event == 0) {
-            $query = "SELECT M.id,M.druzyna1,M.druzyna2,M.data,T1.name AS team1,T2.name AS team2,M.wynik_1,M.wynik_2,M.m_dogr,M.m_karne ,M.id_kolejka,M.w1p1,M.w2p1,M.w1p2,M.w2p2,M.w1p3,M.w2p3,M.w1ot,M.w2ot,M.w1so,M.w2so "
+            $query = "SELECT M.id,M.druzyna1,M.druzyna2,M.data,T1.name AS team1,T2.name AS team2,M.wynik_1,M.wynik_2,M.m_dogr,M.m_karne ,M.id_kolejka,M.w1p1,M.w2p1,M.w1p2,M.w2p2,M.w1p3,M.w2p3,M.w1ot,M.w2ot,M.w1so,M.w2so,M.time "
                     . "FROM #__hockey_match M  "
                     . "LEFT JOIN #__hockey_teams T1 ON (M.druzyna1=T1.id) "
                     . "LEFT JOIN #__hockey_teams T2 ON (M.druzyna2=T2.id) "
@@ -45,7 +45,7 @@ class HockeyModelScheduleo extends JModel {
                     . " ORDER BY M.id_kolejka ,M.data";
             $this->_list = $this->_getList($query, 0, 0);
         } else {
-            $query = "SELECT M.id,M.druzyna1,M.druzyna2,M.data,T1.name AS team1,T2.name AS team2,M.wynik_1,M.wynik_2,M.m_dogr,M.m_karne ,M.id_kolejka,M.w1p1,M.w2p1,M.w1p2,M.w2p2,M.w1p3,M.w2p3,M.w1ot,M.w2ot,M.w1so,M.w2so "
+            $query = "SELECT M.id,M.druzyna1,M.druzyna2,M.data,T1.name AS team1,T2.name AS team2,M.wynik_1,M.wynik_2,M.m_dogr,M.m_karne ,M.id_kolejka,M.w1p1,M.w2p1,M.w1p2,M.w2p2,M.w1p3,M.w2p3,M.w1ot,M.w2ot,M.w1so,M.w2so,M.time "
                     . "FROM #__hockey_match M  "
                     . "LEFT JOIN #__hockey_teams T1 ON (M.druzyna1=T1.id) "
                     . "LEFT JOIN #__hockey_teams T2 ON (M.druzyna2=T2.id) "

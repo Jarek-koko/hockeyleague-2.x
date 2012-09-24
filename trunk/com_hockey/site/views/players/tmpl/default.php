@@ -18,13 +18,12 @@ function birthday($dage) {
 }
 ?>
 <script type="text/javascript">
-    //<![CDATA[
+//<![CDATA[
     jQuery.noConflict();
     jQuery(document).ready(function($) {
         $("#tableplayers0,#tableplayers1,#tableplayers2").tablesorter({sortList:[[0,0]], headers:{1:{sorter: false}, 2:{sorter: false} ,6:{sorter: false}}, widgets: ['zebra']});
-    }
-);
-    //]]>
+    });
+//]]>
 </script>
 <div class="componentheading"><?php echo JText::_('HOC_PLAYERS_TITLE'); ?> - <?php echo $this->team_name; ?></div>
 <?php
@@ -45,7 +44,8 @@ if ($tmp_pos != $row->pozycja) {
 <table class="tableplayers" id="tableplayers<?php echo $b;$b++; ?>" border="0" cellpadding="0" cellspacing="1">
     <thead>
         <tr>
-            <th> # </th>
+            <th> &nbsp;&nbsp;&nbsp;</th>
+            <th> &nbsp;#&nbsp;</th>
             <th><?php echo JText::_('HOC_PLAYER_NAME'); ?></th>
             <th><?php echo JText::_('HOC_PLAYER_DATE'); ?></th>
             <th><?php echo JText::_('HOC_PLAYER_HEIGHT'); ?></th>
@@ -60,6 +60,7 @@ if ($tmp_pos != $row->pozycja) {
     ?>
     <tr>
         <td><?php echo $j ?></td>
+        <td><?php echo $nb = ($row->nr) ? $row->nr : '-'; ?></td>
         <td class="al"><a href="<?php echo $url; ?>" class="tooltip" rel="<?php echo $path . '/' . $row->foto; ?>"><span><?php echo$row->imie . ' ' . $row->nazwisko ?></span></a></td>
         <td><?php echo ($row->data_u === "0000-00-00") ? ' ' : JHTML::_('date', $row->data_u, JText::_('DATE_FORMAT_LC4')); ?></td>
         <td><?php echo $row->wzrost ?></td>

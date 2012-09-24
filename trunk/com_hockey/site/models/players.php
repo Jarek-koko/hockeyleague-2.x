@@ -32,7 +32,7 @@ class HockeyModelPlayers extends JModel {
     }
 
     public function getListPlayers() {
-        $query = "SELECT P.id,P.nazwisko,P.imie,P.pozycja,P.data_u,P.foto,P.wzrost ,P.waga, P.klubold "
+        $query = "SELECT P.id,P.nazwisko,P.imie,P.pozycja,P.data_u,P.foto,P.wzrost,P.waga,P.klubold,P.nr "
                 . "FROM #__hockey_players  P "
                 . "WHERE ( P.published=1 AND P.klub=". $this->_db->Quote($this->_team) .") "
                 . "ORDER BY  P.pozycja ,P.nazwisko, P.imie";
