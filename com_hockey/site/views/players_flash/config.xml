@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <element>
     <config>
-        <team>Team</team>
+        <team></team>
         <player>Player</player>
         <name>Name</name>
         <firstname>First name</firstname>
