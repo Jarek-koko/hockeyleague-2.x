@@ -35,14 +35,6 @@ JHTML::_('behavior.formvalidation');
             return false;
         }
     }
-    
-    function changeDisplayImage() {
-        if (document.adminForm.foto.value !='') {
-            document.adminForm.imagelib.src='<?php echo JURI::root(true); ?>/images/hockey/players/' + document.adminForm.foto.value;
-        } else {
-            document.adminForm.imagelib.src='<?php echo JURI::root(true); ?>/images/hockey/players/nophoto.jpg';
-        }
-    }
     //]]>
 </script>
 <div id="ht">
@@ -53,19 +45,12 @@ JHTML::_('behavior.formvalidation');
                     <td  class="key"><?php echo JText::_('HOC_PLAYER_NAME'); ?> :</td>
                     <td><input class="text_area required" type="text" name="nazwisko" id="nazwisko" size="50" maxlength="50" value="<?php echo $this->items->nazwisko; ?>" /></td>
                     <td  class="key"><?php echo JText::_('HOC_PLAYER_PHOTO'); ?></td>
-                    <td><?php echo $this->lists ['foto']; ?></td>
+                    <td><?php echo $this->field->input; ?></td>
                 </tr>
                 <tr>
                     <td  class="key"><?php echo JText::_('HOC_PLAYER_FIRST_NAME'); ?> :</td>
                     <td><input class="text_area required" type="text" name="imie" id="imie" size="50" maxlength="50" value="<?php echo $this->items->imie; ?>" /></td>
-                    <td rowspan="10" colspan="2" align="center">
-                        <?php
-                        if (preg_match("/.(gif|jpg|png)$/i", $this->items->foto))  {
-                            echo '<img src="' . JURI::root(true) . '/images/hockey/players/' . $this->items->foto . '" name="imagelib" />';
-                        } else {
-                            echo '<img src="' . JURI::root(true) . '/images/hockey/players/nophoto.jpg" name="imagelib" />';
-                        }
-                        ?></td>
+                    <td rowspan="10" colspan="2" align="center"><td>
                 </tr>
                 <tr>
                     <td  class="key"><?php echo JText::_('HOC_PLAYER_BIRTHDAY'); ?> :</td>
