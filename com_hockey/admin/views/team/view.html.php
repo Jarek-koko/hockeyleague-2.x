@@ -13,6 +13,9 @@ jimport('joomla.application.component.view');
 
 require_once (JPATH_COMPONENT . DS . 'helpers' . DS . 'position.php');
 
+jimport('joomla.form.form');
+require_once JPATH_COMPONENT . '/models/fields/hmedia.php';
+
 class HockeyViewTeam extends JView {
 
     function display($tpl = null) {
@@ -29,12 +32,16 @@ class HockeyViewTeam extends JView {
             $mainframe = &JFactory::getApplication();
             $mainframe->redirect($link, $msg, $type);
         } else {
-            // select photo logo team
-            $javascript = 'onchange="changeDisplayImage();"';
-            $lists ['photo'] = JHTML::_('list.images', 'logo', $items->logo, $javascript, '/images/hockey/teams');
+            $form = new JForm('form1');
+            $field = new JFormFieldHmedia($form);
+            $field->setPath('/images/hockey/teams/');
+            $string = '<field name="logo" type="hmedia" directory="hockey/teams" required="false" />';
+            $xml = simplexml_load_string($string);
+            $field->setup($xml, $items->logo);
         }
         $lists ['published'] = JHTML::_('select.booleanlist', 'published', 'class="inputbox"', $items->published);
 
+        $this->assignRef('field', $field);
         $this->assignRef('lists', $lists);
         $this->assignRef('items', $items);
         $this->assignRef('option', $option);

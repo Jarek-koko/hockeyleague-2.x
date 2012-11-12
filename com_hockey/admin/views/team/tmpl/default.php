@@ -32,14 +32,6 @@ JHTML::_('behavior.formvalidation');
             return false;
         }
     }
-
-    function changeDisplayImage() {
-        if (document.adminForm.logo.value !='') {
-            document.adminForm.imagelib.src='<?php echo JURI::root(true); ?>/images/hockey/teams/' + document.adminForm.logo.value;
-        } else {
-            document.adminForm.imagelib.src='<?php echo JURI::root(true); ?>/images/hockey/teams/nologo.png';
-        }
-    }
     //]]>
 </script>
 <div id="ht">
@@ -50,19 +42,12 @@ JHTML::_('behavior.formvalidation');
                     <td  class="key"><?php echo JText::_('HOC_NAME_TEAM'); ?> :</td>
                     <td><input class="text_area required" type="text" name="name" id="name" size="50" maxlength="50" value="<?php echo $this->items->name; ?>" /></td>
                     <td  class="key"><?php echo JText::_('HOC_LOGO'); ?></td>
-                    <td><?php echo $this->lists ['photo']; ?></td>
+                     <td><?php echo $this->field->input; ?></td>
                 </tr>
                 <tr>
                     <td  class="key"><?php echo JText::_('HOC_NAME_TEAM_SHORT'); ?> :</td>
                     <td><input class="text_area required" type="text" name="short" id="short" size="12" maxlength="12" value="<?php echo $this->items->short; ?>" /></td>
-                    <td rowspan="4" colspan="2" align="center">
-                        <?php
-                        if (preg_match("/.(gif|jpg|png)$/i", $this->items->logo)) {
-                            echo '<img src="' . JURI::root(true) . '/images/hockey/teams/' . $this->items->logo . '" name="imagelib" />';
-                        } else {
-                            echo '<img src="' . JURI::root(true) . '/images/hockey/teams/nologo.png" name="imagelib" />';
-                        }
-                        ?></td>
+                    <td rowspan="4" colspan="2" align="center"></td>
                 </tr>
                 <tr>
                     <td  class="key"><?php echo JText::_('description'); ?> :</td>

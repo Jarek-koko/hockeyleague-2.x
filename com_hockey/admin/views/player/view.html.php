@@ -1,5 +1,4 @@
 <?php
-
 /*
  * @package Joomla 1.6
  * @copyright Copyright (C) 2005 Open Source Matters. All rights reserved.
@@ -14,9 +13,14 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 require_once (JPATH_COMPONENT . DS . 'helpers' . DS . 'position.php');
 
-class HockeyViewPlayer extends JView {
+jimport('joomla.form.form');
+require_once JPATH_COMPONENT . '/models/fields/hmedia.php';
 
-    public function display($tpl = null) {
+class HockeyViewPlayer extends JView
+{
+
+    public function display($tpl = null)
+    {
 
         $option = JRequest::getCmd('option');
         $model = $this->getModel('players');
@@ -25,6 +29,7 @@ class HockeyViewPlayer extends JView {
         $model2 = &$this->getModel('teams');
         $kluby = $model2->getAllTeamsSelect();
         $lists ['kluby'] = JHTML::_('select.genericList', $kluby, 'klub', 'class="inputbox validate-notzero"', 'value', 'text', $items->klub);
+
 
         // veryfication folder exist
         if (!JFolder::exists(JPATH_ROOT . DS . 'images' . DS . 'hockey' . DS . 'players')) {
@@ -35,8 +40,12 @@ class HockeyViewPlayer extends JView {
             $mainframe->redirect($link, $msg, $type);
         } else {
             // if exist create select white photos players
-            $javascript = 'onchange="changeDisplayImage();"';
-            $lists ['foto'] = JHTML::_('list.images', 'foto', $items->foto, $javascript, '/images/hockey/players');
+            $form = new JForm('form1');
+            $field = new JFormFieldHmedia($form);
+            $field->setPath('/images/hockey/players/');
+            $string = '<field name="foto" type="hmedia" directory="hockey/players" required="false" />';
+            $xml = simplexml_load_string($string);
+            $field->setup($xml, $items->foto);
         }
 
         // get position players from static helpers
@@ -45,14 +54,18 @@ class HockeyViewPlayer extends JView {
         $lists ['pozycja'] = JHTML::_('select.genericList', $pozycja, 'pozycja', 'class="inputbox"' . '', 'value', 'text', $items->pozycja);
         $lists ['published'] = JHTML::_('select.booleanlist', 'published', 'class="inputbox"', $items->published);
 
+
+        $this->assignRef('field', $field);
         $this->assignRef('lists', $lists);
         $this->assignRef('items', $items);
         $this->assignRef('option', $option);
+
         $this->_addToolbar();
         parent::display($tpl);
     }
 
-    protected function _addToolbar() {
+    protected function _addToolbar()
+    {
         $info = HockeyHelperSelectSeason::getNameSez();
         JToolBarHelper::title(JText::_('HOCKEY') . ' : ' . $info, 'logo.png');
         JToolBarHelper::save();
@@ -60,5 +73,6 @@ class HockeyViewPlayer extends JView {
         JToolBarHelper::apply();
         JToolBarHelper::cancel();
     }
+
 }
 ?>
