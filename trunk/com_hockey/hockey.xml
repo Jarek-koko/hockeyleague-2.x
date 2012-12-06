@@ -82,6 +82,8 @@
         <languages folder="admin">
             <language tag="en-GB">language/en-GB.com_hockey.ini</language>
             <language tag="en-GB">language/en-GB.com_hockey.sys.ini</language>
+            <language tag="fr-FR">language/fr-FR.com_hockey.ini</language>
+            <language tag="fr-FR">language/fr-FR.com_hockey.sys.ini</language>
         </languages>
     </administration>
 </extension>

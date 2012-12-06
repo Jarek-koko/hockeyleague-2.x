@@ -12,10 +12,11 @@
 defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 require_once( JPATH_COMPONENT . DS . 'helpers' . DS . 'season.php' );
+class HockeyViewInfo extends JView
+{
 
-class HockeyViewInfo extends JView {
-
-    function display($tpl = null) {
+    function display($tpl = null)
+    {
 
         $model = &$this->getModel('info');
         $info = $model->getComponentInfo();
@@ -39,17 +40,23 @@ class HockeyViewInfo extends JView {
         parent::display($tpl);
     }
 
-    function _addToolbar() {
+    function _addToolbar()
+    {
         $info = HockeyHelperSelectSeason::getNameSez();
         JToolBarHelper::title(JText::_('HOCKEY') . ' : ' . $info, 'logo.png');
-        JToolBarHelper::preferences('com_hockey');
+        
+        if (JFactory::getUser()->authorise('core.admin', 'com_hockey')) {
+            JToolBarHelper::preferences('com_hockey');
+        }
     }
 
-    function _addTitle() {
+    function _addTitle()
+    {
         $this->addTemplatePath(JPATH_COMPONENT_ADMINISTRATOR . DS . 'views' . DS . 'head');
         $title = JText::_('INFO');
         $this->assignRef('title', $title);
         parent::display('head');
     }
+
 }
 ?>
